@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><path d=%22M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z%22 fill=%22%23FFD93D%22/></svg>">
+  <title>Font处理器</title>
+  <link rel="stylesheet" href="style.css?v=20260416-more-settings">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ico-sparkle" viewBox="0 0 24 24"><path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z" fill="#FFD93D"/></symbol>
+  <symbol id="ico-folder" viewBox="0 0 24 24"><path d="M2 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V7z" fill="#90CAF9"/></symbol>
+  <symbol id="ico-wand" viewBox="0 0 24 24"><rect x="1" y="11" width="16" height="3" rx="1.5" fill="#CE93D8" transform="rotate(-45 9 12.5)"/><path d="M17 2l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#FFD93D"/></symbol>
+  <symbol id="ico-lollipop" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6" fill="#F48FB1"/><rect x="11" y="14" width="2" height="8" rx="1" fill="#BCAAA4"/><path d="M8 5c2-2 6-2 8 0" fill="none" stroke="#F8BBD0" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ico-cake" viewBox="0 0 24 24"><path d="M4 14h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z" fill="#FFAB91"/><path d="M4 14h16l-2-4H6z" fill="#FF8A65"/><rect x="11" y="5" width="2" height="5" rx="1" fill="#BCAAA4"/><circle cx="12" cy="4" r="2" fill="#FFD93D"/></symbol>
+  <symbol id="ico-icecream" viewBox="0 0 24 24"><path d="M8 12l4 10 4-10z" fill="#FFE0B2"/><circle cx="12" cy="9" r="5" fill="#80CBC4"/></symbol>
+  <symbol id="ico-wind" viewBox="0 0 24 24"><path d="M3 8h8c3 0 3-5 0-4M3 12h11c3 0 3 5 0 4M3 16h6c3 0 3-5 0-4" fill="none" stroke="#81D4FA" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ico-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" fill="#B0BEC5"/><path d="M8 11V7a4 4 0 018 0v4" fill="none" stroke="#90A4AE" stroke-width="2"/><circle cx="12" cy="16" r="1.5" fill="#78909C"/></symbol>
+  <symbol id="ico-package" viewBox="0 0 24 24"><path d="M12 2l9 4v12l-9 4-9-4V6z" fill="#D7CCC8"/><path d="M3 6l9 4 9-4M12 10v12" fill="none" stroke="#A1887F" stroke-width="1.2"/></symbol>
+  <symbol id="ico-gift" viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="9" rx="2" fill="#EF9A9A"/><rect x="3" y="12" width="18" height="3" rx="1" fill="#E57373"/><rect x="11" y="12" width="2" height="9" fill="#FFCDD2"/><path d="M7 12c0-4 5-5 5-2m0 0c0-3 5-2 5 2" fill="none" stroke="#FFCDD2" stroke-width="1.5"/></symbol>
+  <symbol id="ico-star" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 1.5-5 5 1 7-6-3.5L6 22l1-7-5-5 7-1.5z" fill="#FFF176"/></symbol>
+  <symbol id="ico-party" viewBox="0 0 24 24"><path d="M6 22l4-14 8 7z" fill="#CE93D8"/><circle cx="18" cy="4" r="1.5" fill="#FFD93D"/><circle cx="14" cy="3" r="1" fill="#EF9A9A"/><circle cx="20" cy="8" r="1" fill="#81D4FA"/></symbol>
+  <symbol id="ico-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#BBDEFB"/><circle cx="9" cy="10" r="1.5" fill="#1565C0"/><circle cx="15" cy="10" r="1.5" fill="#1565C0"/><path d="M9 17c1.5-2 4.5-2 6 0" fill="none" stroke="#1565C0" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ico-cry" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#BBDEFB"/><path d="M8 9.5c1-1.5 2-1.5 3 0m3 0c1-1.5 2-1.5 3 0" stroke="#1565C0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="17" rx="2" ry="1.5" fill="#1565C0"/><path d="M7 13l-1 4m12-4l1 4" stroke="#42A5F5" stroke-width="1.5" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="container">
+  <header class="header">
+    <h1><svg class="ico"><use href="#ico-sparkle"/></svg> Font处理器 <svg class="ico"><use href="#ico-sparkle"/></svg></h1>
+    <p>把你的字体变得漂漂亮亮！(｡♥‿♥｡)</p>
+  </header>
+
+  <main>
+    <div class="upload-box" id="src-box">
+      <div class="icon"><svg class="ico"><use href="#ico-folder"/></svg> ₍ᐢ•ﻌ•ᐢ₎ <svg class="ico"><use href="#ico-folder"/></svg></div>
+      <div class="title">把字体文件扔进这里吧！</div>
+      <div class="hint">支持同时载入多个 .ttf / .otf / .ttc 文件哦~</div>
+      <input type="file" id="src-input" accept=".ttf,.otf,.ttc,.TTF,.OTF,.TTC" multiple>
+      <div class="file-info" id="src-info">还木有选择文件呢...</div>
+    </div>
+
+    <div class="task-shell">
+      <h3 class="section-title">选个处理路线！ <svg class="ico"><use href="#ico-star"/></svg></h3>
+      <div class="task-options">
+        <label class="task-label">
+          <input type="radio" name="task-type" value="convert" checked>
+          <span class="task-text">
+            <strong><svg class="ico"><use href="#ico-wand"/></svg> 适配iOS18+</strong>
+          </span>
+        </label>
+        <label class="task-label">
+          <input type="radio" name="task-type" value="extract">
+          <span class="task-text">
+            <strong><svg class="ico"><use href="#ico-package"/></svg> 转换英数</strong>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div id="weight-config">
+      <h3 class="section-title">选个变身魔法！ <svg class="ico"><use href="#ico-wand"/></svg></h3>
+      <div class="mode-options">
+        <label class="mode-label">
+          <input type="radio" name="weight-mode" value="single" checked>
+          <span class="mode-text">
+            <strong><svg class="ico"><use href="#ico-lollipop"/></svg> 全局统配</strong>
+            <small>全部变成常规体，稳稳哒</small>
+          </span>
+        </label>
+        <label class="mode-label">
+          <input type="radio" name="weight-mode" value="dual">
+          <span class="mode-text">
+            <strong><svg class="ico"><use href="#ico-cake"/></svg> 粗细分离</strong>
+            <small>常规和粗体都有，刚刚好</small>
+          </span>
+        </label>
+        <label class="mode-label">
+          <input type="radio" name="weight-mode" value="triple">
+          <span class="mode-text">
+            <strong><svg class="ico"><use href="#ico-icecream"/></svg> 三阶层次</strong>
+            <small>细/常/粗全都要，棒呆了</small>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="settings-shell" id="convert-settings-shell">
+      <button class="settings-toggle" id="convert-settings-toggle" type="button">
+        <span class="settings-arrow">▶</span>
+        <span>更多设置</span>
+      </button>
+      <div class="settings-panel" id="convert-settings-panel">
+        <div class="settings-grid">
+          <label class="setting-row">
+            <span class="setting-label">输出名称</span>
+            <input class="setting-input" id="convert-output-tpl" type="text" placeholder="${fontName}UI">
+          </label>
+          <label class="setting-row">
+            <span class="setting-label">预览文本</span>
+            <input class="setting-input" id="convert-preview-text" type="text" placeholder="我爱的小字体预览:(Abc123)">
+          </label>
+          <div class="setting-row">
+            <span class="setting-label">兼容配置</span>
+            <div class="setting-options">
+              <label class="setting-choice">
+                <input type="radio" name="compat-layer" value="ios18" checked>
+                <span>iOS 18-26</span>
+              </label>
+              <label class="setting-choice">
+                <input type="radio" name="compat-layer" value="ios9">
+                <span>iOS 9-17</span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">输出格式</span>
+            <div class="setting-options">
+              <label class="setting-choice">
+                <input type="radio" name="output-format" value="ttc" checked>
+                <span>TTC</span>
+              </label>
+              <label class="setting-choice">
+                <input type="radio" name="output-format" value="ttf">
+                <span>TTF</span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">字体大小</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-target="size" data-delta="-50">−</button>
+              <input class="offset-value" id="convert-size-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-target="size" data-delta="50">+</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">字体粗细</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-target="weight" data-delta="-50">−</button>
+              <input class="offset-value" id="convert-weight-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-target="weight" data-delta="50">+</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">字体行距</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-target="lineHeight" data-delta="-50">−</button>
+              <input class="offset-value" id="convert-lh-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-target="lineHeight" data-delta="50">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-shell is-hidden" id="extract-settings-shell">
+      <button class="settings-toggle" id="extract-settings-toggle" type="button">
+        <span class="settings-arrow">▶</span>
+        <span>更多设置</span>
+      </button>
+      <div class="settings-panel" id="extract-settings-panel">
+        <div class="settings-grid">
+          <label class="setting-row">
+            <span class="setting-label">输出名称</span>
+            <input class="setting-input" id="extract-output-tpl" type="text" placeholder="${fontName}-SFUI">
+          </label>
+          <label class="setting-row">
+            <span class="setting-label">预览文本</span>
+            <input class="setting-input" id="extract-preview-text" type="text" placeholder="我爱的小字体预览:(Abc123)">
+          </label>
+          <div class="setting-row">
+            <span class="setting-label">字体大小</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-group="extract" data-target="size" data-delta="-50">−</button>
+              <input class="offset-value" id="extract-size-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-group="extract" data-target="size" data-delta="50">+</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">字体粗细</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-group="extract" data-target="weight" data-delta="-50">−</button>
+              <input class="offset-value" id="extract-weight-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-group="extract" data-target="weight" data-delta="50">+</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">字体行距</span>
+            <div class="offset-control">
+              <button class="offset-btn" type="button" data-group="extract" data-target="lineHeight" data-delta="-50">−</button>
+              <input class="offset-value" id="extract-lh-val" type="number" value="0">
+              <button class="offset-btn" type="button" data-group="extract" data-target="lineHeight" data-delta="50">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="convert-btn" id="convert-btn" disabled>等放好文件再点我哦 (๑•̀ㅂ•́)و✧</button>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-meta">
+        <span>正在努力施法中... <svg class="ico"><use href="#ico-wind"/></svg></span>
+        <span id="progress-text">准备好啦！</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="log-shell" id="log-shell">
+      <div class="log-head">
+        小黑板 <span>(纯本地安全运行 <svg class="ico"><use href="#ico-lock"/></svg>)</span>
+      </div>
+      <div class="log-scroll" id="log-scroll"></div>
+    </div>
+
+    <div class="results-shell" id="results"></div>
+
+  </main>
+  <footer class="footer">
+    <p>所有魔法都在你的浏览器里完成，绝对不会偷看你的字体文件哦！( ˘ ³˘)♥</p>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app-core.js?v=20260416-more-settings"></script>
+
+</body>
+</html>
