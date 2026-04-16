@@ -11,5 +11,6 @@
 
 支持转换英数
 
-
-部分代码参考huami1314
+# 代码灵感
+本来写的是python本地跑的，然后部分代码参考huami1314
+https://github.com/huami1314/iFont
