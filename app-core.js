@@ -242,10 +242,36 @@ function initFontProcessorApp() {
     });
   }
 
+  function detectFontKind(buffer) {
+    if (!buffer || buffer.byteLength < 4) return null;
+    const dv = new DataView(buffer);
+    const sig = String.fromCharCode(
+      dv.getUint8(0),
+      dv.getUint8(1),
+      dv.getUint8(2),
+      dv.getUint8(3)
+    );
+    if (sig === 'ttcf') return 'ttc';
+    if (sig === 'OTTO') return 'otf';
+    if (sig === 'true') return 'ttf';
+    if (dv.getUint32(0, false) === 0x00010000) return 'ttf';
+    return null;
+  }
+
   setupDrop(srcBox, srcInput, async files => {
     srcFilesState.files = [];
+    const rejected = [];
     for (const f of files) {
-      srcFilesState.files.push({ name: f.name, buffer: await f.arrayBuffer() });
+      const buffer = await f.arrayBuffer();
+      const kind = detectFontKind(buffer);
+      if (!kind) {
+        rejected.push(f.name);
+        continue;
+      }
+      srcFilesState.files.push({ name: f.name, buffer });
+    }
+    if (rejected.length) {
+      addLog('err', `已跳过 ${rejected.length} 个非字体文件：${rejected.slice(0, 3).join('、')}${rejected.length > 3 ? '...' : ''}`);
     }
     renderSelectedFiles();
     checkReady();
